@@ -1,9 +1,9 @@
 # Blue-Green deployment using Github as source, Jenkins for Continuous Integration, and CodeDeploy for Continous Deployment on the AWS platform
 
-Objective:
+# Objective:
 The objective of this project is to deploy an application on EC2 instances in a Blue-Green environment using AWS CodeDeploy, with GitHub as the source code repository and Jenkins to build the code and trigger deployments.
 
-Blue-Green Deployment Overview
+# Blue-Green Deployment Overview
 Blue-Green deployment is a powerful strategy to minimize downtime and reduce deployment risk by running two identical production environments:
 Blue (currently live)
 
@@ -11,7 +11,7 @@ Blue (currently live)
 Green (idle during initial phase)
 
 
-How it works:
+# How it works:
 The live environment (Blue) serves production traffic.
 
 
@@ -26,7 +26,7 @@ If issues occur, rollback is as simple as routing traffic back to Blue.
 
 This approach ensures zero-downtime deployments and provides a quick recovery option.
 
-Tools & Technologies Used:
+# Tools & Technologies Used:
 AWS EC2 - Hosting Blue and Green environments
 
 
@@ -40,7 +40,7 @@ GitHub - Source code repository
 
 
 
-Prerequisites:
+# Prerequisites:
 Before beginning this lab, ensure you have the following:
 An active AWS account
 
@@ -54,11 +54,11 @@ A GitHub repository with your application source code
 Jenkins installed and configured with:
 
 
-CodeDeploy plugin
+  CodeDeploy plugin
 
 
 
-Deployment Workflow Overview:
+# Deployment Workflow Overview:
 Push code to GitHub
 
 
@@ -77,7 +77,7 @@ After testing, traffic is switched from Blue to Green
 Rollback by switching back to Blue if needed
 
 
-Steps followed on the AWS UI:
+# Steps followed on the AWS UI:
 Ensure that the user trying to setup this lab has sufficient permissions to interact and work with the following AWS services Auto Scaling Group, CodeDeploy, S3, IAM, & EC2.
 
 
@@ -108,7 +108,7 @@ Create a CodeDeploy application, add the service role that was created in the pr
 Create a Deployment group within the CodeDeploy application. Ensure that you choose Blue/green as the deployment type,mention your autoscaling group under environmental configuration, choose your load balancer
 
 
-Steps followed for Jenkins:
+# Steps followed for Jenkins:
 Create a Jenkins freestyle job
 Select source code as Git, and enter the Github repo. URL
 Select a Post-Build job as Deploy an application to AWS CodeDeploy, and enter the details of your configuration on AWS
