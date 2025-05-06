@@ -12,77 +12,39 @@ Green (idle during initial phase)
 
 
 # How it works:
-The live environment (Blue) serves production traffic.
-
-
-A new version of the application is deployed and tested in the idle environment (Green).
-
-
-Once validated, traffic is switched from Blue to Green.
-
-
-If issues occur, rollback is as simple as routing traffic back to Blue.
-
+* The live environment (Blue) serves production traffic
+* A new version of the application is deployed and tested in the idle environment (Green)
+* Once validated, traffic is switched from Blue to Green
+* If issues occur, rollback is as simple as routing traffic back to Blue
 
 This approach ensures zero-downtime deployments and provides a quick recovery option.
 
 # Tools & Technologies Used:
-AWS EC2 - Hosting Blue and Green environments
-
-
-AWS CodeDeploy - Automating deployment process
-
-
-Jenkins - Automating build & deployment trigger
-
-
-GitHub - Source code repository
-
-
+* AWS EC2 - Hosting Blue and Green environments
+* AWS CodeDeploy - Automating deployment process
+* Jenkins - Automating build & deployment trigger
+* GitHub - Source code repository
 
 # Prerequisites:
 Before beginning this lab, ensure you have the following:
-An active AWS account
-
-
-A Virtual Machine or cloud-based Jenkins server
-
-
-A GitHub repository with your application source code
-
-
-Jenkins installed and configured with:
-
-
-  CodeDeploy plugin
-
-
+* An active AWS account
+* A Virtual Machine or cloud-based Jenkins server
+* A GitHub repository with your application source code
+* Jenkins installed and configured with CodeDeploy plugin
 
 # Deployment Workflow Overview:
-Push code to GitHub
-
-
-Jenkins pulls the latest code and creates a build
-
-
-Jenkins triggers AWS CodeDeploy
-
-
-CodeDeploy deploys the new version to the Green environment
-
-
-After testing, traffic is switched from Blue to Green
-
-
-Rollback by switching back to Blue if needed
+* Push code to GitHub
+* Jenkins pulls the latest code and creates a build
+* Jenkins triggers AWS CodeDeploy
+* CodeDeploy deploys the new version to the Green environment
+* After testing, traffic is switched from Blue to Green
+* Rollback by switching back to Blue if needed
 
 
 # Steps followed on the AWS UI:
-Ensure that the user trying to setup this lab has sufficient permissions to interact and work with the following AWS services Auto Scaling Group, CodeDeploy, S3, IAM, & EC2.
-
-
-Create an S3 bucket. It is used in the following way:
-Jenkins builds the app and packages it
+* Ensure that the user trying to setup this lab has sufficient permissions to interact and work with the following AWS services Auto Scaling Group, CodeDeploy, S3, IAM, & EC2.
+* Create an S3 bucket. It is used in the following way:
+  1. Jenkins builds the app and packages it
 The .zip file is uploaded to an S3 bucket
 CodeDeploy is triggered and pulls the artifact from that bucket
 It deploys the app to the target EC2 instances (Blue or Green)
