@@ -72,7 +72,11 @@ Create a Deployment group within the CodeDeploy application. Ensure that you cho
 
 # Steps followed for Jenkins:
 Create a Jenkins freestyle job
+
 Select source code as Git, and enter the Github repo. URL
+
 Select a Post-Build job as Deploy an application to AWS CodeDeploy, and enter the details of your configuration on AWS
+
 Build the project
+
 Make a quick change to the index.html file, trigger a build right after making the change 
