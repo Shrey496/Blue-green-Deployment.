@@ -49,34 +49,34 @@ The .zip file is uploaded to an S3 bucket
 CodeDeploy is triggered and pulls the artifact from that bucket
 It deploys the app to the target EC2 instances (Blue or Green)
 
-Create a CodeDeploy policy by navigating to IAM, allowing access to S3. Assign it to the role created for your EC2 instance (ensuring EC2 instances have access to necessary AWS services)
+* Create a CodeDeploy policy by navigating to IAM, allowing access to S3. Assign it to the role created for your EC2 instance (ensuring EC2 instances have access to necessary AWS services)
 
 
-Similar to above point, create another role, this time for the CodeDeploy service to access S3 and other AWS services in order to facilitate the deployment and termination of applications on instances
+* Similar to above point, create another role, this time for the CodeDeploy service to access S3 and other AWS services in order to facilitate the deployment and termination of applications on instances
 
 
-Create an Application Load Balancer, with appropriate security group and target group configuration
+* Create an Application Load Balancer, with appropriate security group and target group configuration
 
 
-Create an EC2 instance template using default settings for the upcoming step
+* Create an EC2 instance template using default settings for the upcoming step
 
 
-Create an Auto-Scaling Group and choose the above created instance template in order for it to use the same for deploying the application EC2 instances (Ensure that you enable Load Balancing, and choose the created Target group)
+* Create an Auto-Scaling Group and choose the above created instance template in order for it to use the same for deploying the application EC2 instances (Ensure that you enable Load Balancing, and choose the created Target group)
 
 
-Create a CodeDeploy application, add the service role that was created in the previous steps for the CodeDeploy service
+* Create a CodeDeploy application, add the service role that was created in the previous steps for the CodeDeploy service
 
 
-Create a Deployment group within the CodeDeploy application. Ensure that you choose Blue/green as the deployment type,mention your autoscaling group under environmental configuration, choose your load balancer
+* Create a Deployment group within the CodeDeploy application. Ensure that you choose Blue/green as the deployment type,mention your autoscaling group under environmental configuration, choose your load balancer
 
 
 # Steps followed for Jenkins:
-Create a Jenkins freestyle job
+* Create a Jenkins freestyle job
 
-Select source code as Git, and enter the Github repo. URL
+* Select source code as Git, and enter the Github repo. URL
 
-Select a Post-Build job as Deploy an application to AWS CodeDeploy, and enter the details of your configuration on AWS
+* Select a Post-Build job as Deploy an application to AWS CodeDeploy, and enter the details of your configuration on AWS
 
-Build the project
+* Build the project
 
-Make a quick change to the index.html file, trigger a build right after making the change 
+* Make a quick change to the index.html file, trigger a build right after making the change 
