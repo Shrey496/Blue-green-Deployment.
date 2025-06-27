@@ -44,10 +44,9 @@ Before beginning this lab, ensure you have the following:
 # Steps followed on the AWS UI:
 * Ensure that the user trying to setup this lab has sufficient permissions to interact and work with the following AWS services Auto Scaling Group, CodeDeploy, S3, IAM, & EC2.
 * Create an S3 bucket. It is used in the following way:
-  1. Jenkins builds the app and packages it
-The .zip file is uploaded to an S3 bucket
-CodeDeploy is triggered and pulls the artifact from that bucket
-It deploys the app to the target EC2 instances (Blue or Green)
+  1. Jenkins builds the app and packages it.
+  2. The .zip file is uploaded to an S3 bucket.
+  3. CodeDeploy is triggered and pulls the artifact from that bucket resulting in it deploying the app to the target EC2 instances (Blue or Green).
 
 * Create a CodeDeploy policy by navigating to IAM, allowing access to S3. Assign it to the role created for your EC2 instance (ensuring EC2 instances have access to necessary AWS services)
 
